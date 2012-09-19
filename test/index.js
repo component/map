@@ -1,9 +1,9 @@
 
 var map = require('..');
 
-var loki = { name: 'loki', age: 1 };
-var tobi = { name: 'tobi', age: 2 };
-var jane = { name: 'jane', age: 8 };
+var tobi = { name: { first: 'tobi' }, age: 2 };
+var loki = { name: { first: 'loki' }, age: 1 };
+var jane = { name: { first: 'jane' }, age: 8 };
 
 describe('map(arr, fn)', function(){
   it('should map values', function(){
@@ -20,7 +20,13 @@ describe('map(arr, fn)', function(){
 
   it('should support property strings', function(){
     var users = [tobi, loki, jane];
-    var arr = map(users, 'name');
+    var arr = map(users, 'age');
+    arr.should.eql([2,1,8]);
+  })
+
+  it('should support nested property strings', function(){
+    var users = [tobi, loki, jane];
+    var arr = map(users, 'name.first');
     arr.should.eql(['tobi', 'loki', 'jane']);
   })
 })

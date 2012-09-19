@@ -20,7 +20,11 @@ function toFunction(obj) {
 }
 
 function stringToFunction(str) {
+  var props = str.split('.');
   return function(obj){
-    return obj[str];
+    for (var i = 0; i < props.length; ++i) {
+      obj = obj[props[i]];
+    }
+    return obj;
   }
 }
