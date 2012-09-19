@@ -1,4 +1,13 @@
 
+/**
+ * Map the given `arr` with callback `fn(val, i)`.
+ *
+ * @param {Array} arr
+ * @param {Function} fn
+ * @return {Array}
+ * @api public
+ */
+
 module.exports = function(arr, fn){
   var ret = [];
   fn = toFunction(fn);
@@ -7,6 +16,14 @@ module.exports = function(arr, fn){
   }
   return ret;
 };
+
+/**
+ * Convert `obj` to a `Function`.
+ *
+ * @param {Mixed} obj
+ * @return {Function}
+ * @api private
+ */
 
 function toFunction(obj) {
   switch (typeof obj) {
@@ -18,6 +35,14 @@ function toFunction(obj) {
       throw new TypeError('invalid callback "' + obj + '"');
   }
 }
+
+/**
+ * Convert property `str` to a function.
+ *
+ * @param {String} str
+ * @return {Function}
+ * @api private
+ */
 
 function stringToFunction(str) {
   var props = str.split('.');
