@@ -1,9 +1,9 @@
 {
   "name": "map",
   "repo": "component/map",
-  "description": "Map utility",
+  "description": "Array map utility",
   "version": "0.0.1",
-  "keywords": [],
+  "keywords": ["array", "map", "utility"],
   "dependencies": {},
   "development": {},
   "scripts": [
