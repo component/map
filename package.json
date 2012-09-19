@@ -1,0 +1,9 @@
+{
+  "name": "map",
+  "version": "0.0.0",
+  "description": "Map utility",
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  }
+}
