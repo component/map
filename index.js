@@ -23,6 +23,7 @@ function stringToFunction(str) {
   var props = str.split('.');
   return function(obj){
     for (var i = 0; i < props.length; ++i) {
+      if (null == obj) return;
       obj = obj[props[i]];
     }
     return obj;

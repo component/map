@@ -1,7 +1,7 @@
 
 var map = require('..');
 
-var tobi = { name: { first: 'tobi' }, age: 2 };
+var tobi = { name: { first: 'tobi' }, age: 2, role: { name: 'admin' } };
 var loki = { name: { first: 'loki' }, age: 1 };
 var jane = { name: { first: 'jane' }, age: 8 };
 
@@ -28,5 +28,11 @@ describe('map(arr, fn)', function(){
     var users = [tobi, loki, jane];
     var arr = map(users, 'name.first');
     arr.should.eql(['tobi', 'loki', 'jane']);
+  })
+
+  it('should return undefined when the nested props do not exist', function(){
+    var users = [tobi, loki, jane];
+    var arr = map(users, 'role.name');
+    arr.should.eql(['admin', undefined, undefined]);
   })
 })
