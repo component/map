@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -14,11 +13,12 @@ var toFunction = require('to-function');
  * @api public
  */
 
-module.exports = function(arr, fn){
-  var ret = [];
+module.exports = function(xs, fn){
+  var len = xs.length;
+  var ret = new Array(len);
   fn = toFunction(fn);
-  for (var i = 0; i < arr.length; ++i) {
-    ret.push(fn(arr[i], i));
+  for (var i = 0; i < len; ++i) {
+    ret.push(fn(xs[i], i));
   }
   return ret;
 };
