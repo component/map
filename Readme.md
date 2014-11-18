@@ -9,7 +9,7 @@
 
 ## API
 
-### map(array, fn)
+### map(array, fn[, ctx])
 
   Map returning a new array:
 
@@ -19,7 +19,15 @@ var names = map(users, function(user){
 });
 ```
 
-### map(array, string)
+Optionally pass a context object:
+
+```js
+map([1, 2, 3], function(num, i) {
+  // ...
+}, this);
+```
+
+### map(array, string[, ctx])
 
   Map properties in `string` returning a new array:
 
