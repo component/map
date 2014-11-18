@@ -35,4 +35,14 @@ describe('map(arr, fn)', function(){
     var arr = map(users, 'role.name');
     arr.should.eql(['admin', undefined, undefined]);
   })
+
+  describe('when passed a context', function() {
+    it('should iterate in the given context', function(){
+      var ctx = [];
+      map([1, 2, 3], function(val){
+        this.push(val);
+      }, ctx);
+      ctx.should.eql([1, 2, 3]);
+    });
+  });
 })

@@ -14,11 +14,12 @@ var toFunction = require('to-function');
  * @api public
  */
 
-module.exports = function(arr, fn){
+module.exports = function(arr, fn, ctx){
   var ret = [];
   fn = toFunction(fn);
+  ctx = ctx || this;
   for (var i = 0; i < arr.length; ++i) {
-    ret.push(fn(arr[i], i));
+    ret.push(fn.call(ctx, arr[i], i));
   }
   return ret;
 };
